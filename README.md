@@ -12,6 +12,7 @@ For step by step explanation, please refer to [this article]()
     * `mv CMakeLists.txt.aarch32 CMakeLists.txt`
     * `mkdir build_aarch32`
     * `cd build_aarch32`
+    * `cmake ..`
     * `make -j$(nproc)`
 
 ### AArch64
@@ -22,4 +23,5 @@ For step by step explanation, please refer to [this article]()
     * `mv CMakeLists.txt.aarch64 CMakeLists.txt`
     * `mkdir build_aarch64`
     * `cd build_aarch64`
+    * `cmake ..`
     * `make -j$(nproc)`
