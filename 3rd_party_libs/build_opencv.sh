@@ -36,10 +36,13 @@ while test $# -gt 0; do
   esac
 done
 
-# download ncnn
-test -e ncnn || git clone git@github.com:Tencent/ncnn.git
+# download opencv 4.1.1
+test -e opencv.zip || wget -O opencv.zip https://github.com/opencv/opencv/archive/4.1.1.zip
+test -e opencv-4.1.1 || unzip opencv
 
-cd ncnn
+mv opencv-4.1.1 opencv
+
+cd opencv
 
 if [ "$build_type" = "aarch32" ]; then
   #########
