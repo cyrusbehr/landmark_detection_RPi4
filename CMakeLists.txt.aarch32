@@ -1,0 +1,45 @@
+cmake_minimum_required(VERSION 3.0)
+
+SET ( CMAKE_SYSTEM_NAME Linux )
+SET ( CMAKE_SYSTEM_PROCESSOR arm )
+SET ( CMAKE_C_COMPILER "arm-linux-gnueabihf-gcc" )
+SET ( CMAKE_CXX_COMPILER "arm-linux-gnueabihf-g++" )
+
+SET ( CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER )
+SET ( CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY )
+SET ( CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY )
+
+project(
+        landmark_detection_aarch32 VERSION 0.1
+        DESCRIPTION "Landmark Detection using MTCNN for AArch32"
+        LANGUAGES CXX)
+
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -Wall -fPIC -Ofast -fopenmp")
+
+set(OpenCV_DIR "${CMAKE_CURRENT_LIST_DIR}/3rd_party_libs/opencv/build_aarch32/install_aarch32/usr/local/lib/cmake/opencv4")
+find_package(OpenCV REQUIRED)
+
+include_directories(
+        ${CMAKE_CURRENT_LIST_DIR}/src
+        "${CMAKE_CURRENT_LIST_DIR}/3rd_party_libs/ncnn/build_aarch32/install/include/ncnn"
+)
+
+link_directories(
+        "${CMAKE_CURRENT_LIST_DIR}/3rd_party_libs/ncnn/build_aarch32/install/lib"
+)
+
+set(SOURCE_FILES src/mtcnn.cpp src/main.cpp)
+
+add_executable(landmark_detection_aarch32 ${SOURCE_FILES})
+target_link_libraries(landmark_detection_aarch32 ${OpenCV_LIBS} ncnn)
+
+
+# Copy the distribution files
+file(MAKE_DIRECTORY ${CMAKE_SOURCE_DIR}/dist_aarch32)
+file(MAKE_DIRECTORY ${CMAKE_SOURCE_DIR}/dist_aarch32/bin)
+
+add_custom_command(TARGET landmark_detection_aarch32 POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:landmark_detection_aarch32> "${CMAKE_SOURCE_DIR}/dist_aarch32/bin"
+        COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_SOURCE_DIR}/models" "${CMAKE_SOURCE_DIR}/dist_aarch32/models"
+        COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_SOURCE_DIR}/images" "${CMAKE_SOURCE_DIR}/dist_aarch32/images"
+    )
