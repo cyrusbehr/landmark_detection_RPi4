@@ -2,9 +2,10 @@
 
 For step by step explanation, please refer to [this article]()
 
-![](https://cdn-images-1.medium.com/max/800/1*_cw6U2HGKpegUW9uPjnfXQ.gif)
+![](./readme_images/demo.gif)
 
-![](https://cdn-images-1.medium.com/max/800/1*_cw6U2HGKpegUW9uPjnfXQ.gif)
+![](./readme_images/demo.jpeg)
+
 
 ## Build Steps
 
