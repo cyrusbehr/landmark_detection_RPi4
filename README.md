@@ -2,6 +2,10 @@
 
 For step by step explanation, please refer to [this article]()
 
+![](https://cdn-images-1.medium.com/max/800/1*_cw6U2HGKpegUW9uPjnfXQ.gif)
+
+![](https://cdn-images-1.medium.com/max/800/1*uUCO35XLs7z--iF9CMXmaw.jpeg)
+
 ## Build Steps
 
 ### AArch32
