@@ -1,4 +1,4 @@
-# Cross Compiling Landmark Detection Program for ARM32 / ARM64
+# Cross Compiling Landmark Detection Application for ARM32 / ARM64
 
 For a step by step explanation, please refer to [this article]()
 
