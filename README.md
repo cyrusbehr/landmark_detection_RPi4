@@ -1,6 +1,6 @@
 # Cross Compiling Landmark Detection Application for ARM32 / ARM64
 
-For a step by step explanation, please refer to [this article]()
+For a step by step explanation, please refer to [this article](https://medium.com/trueface-ai/trueface-tutorials-how-to-cross-compile-popular-computer-vision-c-frameworks-for-raspberry-pi-4-afcbe2dcc302)
 
 ![](./readme_images/demo.gif)
 
